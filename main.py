@@ -14,6 +14,10 @@ class InputData(BaseModel):
     age: int
     estimated_salary: int
 
+@app.get('/')
+def read_root():
+    return {"message": "Welcome to the Logistic Regression Prediction API"}
+
 @app.post('/predict')
 def predict(data: InputData):
     input_data = np.array([[data.age, data.estimated_salary]])
